@@ -1,0 +1,112 @@
+// 入力するテキストの変数
+var inputText = $(".inputText");
+
+// 出てくるテキストの変数
+var outputText1 = $(".outputText1");
+var outputText2 = $(".outputText2");
+var outputText3 = $(".outputText3");
+var outputText4 = $(".outputText4");
+var outputText5 = $(".outputText5");
+var outputText6 = $(".outputText6");
+
+// 写真の変数
+var photo = $('.mainphoto');
+
+// 写真の順番
+var photoNumber = 0;
+
+// 次の写真を表示する関数
+function nextPhoto() {
+
+  // 写真の順番を１増やす
+  photoNumber += 1;
+
+  // 写真の順番が５以上になったら、０に戻す
+  if (photoNumber >= 5) {
+    photoNumber = 0;
+  }
+
+  // setPhoto関数を呼び出す
+  setPhoto();
+
+};
+
+// 前の写真を表示する関数
+function backPhoto() {
+
+  // 写真の順番を１へらす
+  photoNumber -= 1;
+
+  // 写真の順番が０未満になったら、４に戻す
+  if (photoNumber < 0) {
+    photoNumber = 4;
+  }
+
+  // setPhoto関数を呼び出す
+  setPhoto();
+
+};
+
+// 写真の順番によって写真を変える関数
+function setPhoto() {
+  if (photoNumber == 0) {
+    photo.attr('src', 'img/World_Scenery/Cambodia1.jpg');
+  }
+  else if (photoNumber == 1) {
+    photo.attr('src', 'img/World_Scenery/Cambodia1.jpg');
+  }
+  else if (photoNumber == 2) {
+    photo.attr('src', 'img/World_Scenery/Cambodia1.jpg');
+  }
+  else if (photoNumber == 3) {
+    photo.attr('src', 'img/World_Scenery/Cambodia1.jpg');
+  }
+  else if (photoNumber == 4) {
+    photo.attr('src', 'img/World_Scenery/Cambodia1.jpg');
+  }
+}
+
+
+
+
+
+// 検索ボタンをクリックした時のファンクション
+function clickSearchButton() {
+  // 入力された文字を変数に入れる
+  var inputData = inputText.val();
+
+  // シートを取得する
+  $.ajax({
+    // スプレッドシート「スクリプトURL」
+    url: "https://script.google.com/a/lifeistech.co.jp/macros/s/AKfycbylO9PiKg3p6v8Rp0H4kbZOUIE6LzGgkxxOPk4f/exec",
+    type: "GET",
+    dataType: "json",
+
+    // シートの取得に成功した時のファンクション
+    success: function (sheet) {
+      // 全てのデータを変数に入れる
+      var allData = sheet.allData;
+
+      // シートの行数分、検索をくりかえす
+      for (var i = 0; i < allData.length; i++) {
+        // もしデータの中に入力した文字があれば
+        if (inputData == allData[i][0]) {
+          // セルのデータを変数に入れる
+          var outputData1 = allData[i][1];
+          var outputData2 = allData[i][2];
+          var outputData3 = allData[i][3];
+          var outputData4 = allData[i][4];
+          var outputData5 = allData[i][5];
+          var outputData6 = allData[i][6];
+        }
+      }
+
+      // 変数にテキストを表示する
+      outputText1.text(outputData1);
+      outputText2.text(outputData2 + "人");
+      outputText3.text(outputData3 + "㎢");
+      outputText4.text(outputData4 + "時間");
+      outputText5.text(outputData5);
+    }
+  });
+};
