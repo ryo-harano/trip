@@ -80,7 +80,8 @@ nav li {
 .about {
   background-color: #4FADFF;
   background-image: url(img/World_Scenery/nanbei7.jpg);
-  color: #014580;
+    background-size:cover;
+    color: #014580;
   padding: 30px;
 }
 
@@ -99,7 +100,6 @@ nav li {
   font-size: 20px;
   background-color: #ffffff;
   padding: 20px;
-  height: 270px;
   border-radius: 30px;
 }
 
@@ -110,6 +110,7 @@ nav li {
 .SCAmerica {
   padding: 30px;
   background-image: url(img/World_Scenery/nanbei3.jpg);
+    background-size:cover;
 }
 
 .SCAmerica h2 {
@@ -165,6 +166,7 @@ nav li {
 .Europe {
   padding: 30px;
   background-image: url(img/World_Scenery/Italy15.JPG);
+    background-size:cover;
 }
 
 .Europe h2 {
@@ -204,6 +206,7 @@ nav li {
 .recommend {
   padding: 30px;
   background-image: url(img/World_Scenery/Vietnam14.JPG);
+    background-size:cover;
 }
 
 .recommend h2 {
@@ -308,7 +311,7 @@ nav li {
   background-size:cover;
   color: white;
   padding: 30px;
-  height: 400px;
+  height: 500px;
 }
 
 .map h3 {
